@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class OrderItems extends Model
 {
     //Table Name
-    protected $table = 'orders';
+    protected $table = 'order_items';
 
     //primary key
     public $primaryKey = 'id';

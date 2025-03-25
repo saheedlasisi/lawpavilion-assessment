@@ -25,3 +25,6 @@ Route::get('/customer/generate', 'CustomerController@generate')->name('website.c
 
 Route::get('/products', 'ProductController@index')->name('website.products');
 Route::get('/product/generate', 'ProductController@generate')->name('website.products.generate');
+
+Route::get('/orders', 'OrderController@index')->name('website.orders');
+Route::get('/order/generate', 'OrderController@generate')->name('website.orders.generate');
