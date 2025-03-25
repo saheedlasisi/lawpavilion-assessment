@@ -14,4 +14,9 @@ class OrderItems extends Model
 
     //TImestamps
     public $timestamps = true;
+
+    public function product()
+    {
+        return $this->hasOne('App\Products', 'id', 'product_id');
+    }
 }

@@ -14,4 +14,24 @@ class Orders extends Model
 
     //TImestamps
     public $timestamps = true;
+
+
+    public function customer()
+    {
+        return $this->hasOne('App\Customers', 'id', 'customer_id');
+    }
+
+    public function item()
+    {
+        return $this->hasOne('App\OrderItems', 'order_id', 'id');
+    }
+
+    public function items()
+    {
+        return $this->hasMany('App\OrderItems', 'order_id', 'id');
+    }
+
+
+
+    //
 }

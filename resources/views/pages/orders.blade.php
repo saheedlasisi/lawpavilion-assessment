@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h2>Products</h2>
+<h2>Orders</h2>
 
 <div class="row">
     <div class="col-md-8"> Total: {{$orders->total()}}</div>
@@ -49,14 +49,17 @@
         </tfoot>
         <tbody>
             <?php $no = 1; ?>
-            @foreach($orders as $orders)
+            @foreach($orders as $order)
             <tr>
                 <td>{{$no}}</td>
-                <td>{{$orders->name}}</td>
-                <td>{{$orders->status}}</td>
-                <td>₦{{number_format($orders->total_amount)}}</td>
-                <td></td>
-                <td>{{$orders->created_at}}</td>
+                <td>{{$order->customer->name}}</td>
+                <td>{{$order->status}}</td>
+                <td>₦{{number_format($order->total_amount)}}</td>
+                <td>
+                    Product: {{$order->item->product->name}} || Price: ₦{{number_format($order->item->price)}} || Qty:
+                    {{$order->item->quantity}}
+                </td>
+                <td>{{$order->created_at}}</td>
             </tr>
             <?php $no++; ?>
             @endforeach
@@ -67,7 +70,7 @@
 
     </table>
     <div class="d-flex justify-content-center mt-3">
-        {{ $orders->links() }}
+        {{$orders->links()}}
     </div>
 
 
