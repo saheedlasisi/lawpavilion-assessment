@@ -19,8 +19,9 @@ Route::get('/test', function () {
 
 
 Route::get('/', 'CustomerController@index')->name('website.index');
+
 Route::get('/customers', 'CustomerController@index')->name('website.customers');
 Route::get('/customer/generate', 'CustomerController@generate')->name('website.customers.generate');
 
-Route::get('/products', 'CustomerController@index')->name('website.products');
-Route::get('/product/generate', 'CustomerController@generate')->name('website.products.generate');
+Route::get('/products', 'ProductController@index')->name('website.products');
+Route::get('/product/generate', 'ProductController@generate')->name('website.products.generate');
