@@ -4,4 +4,5 @@
     <a href="/">Customer</a>
     <a href="/products">Products</a>
     <a href="/orders">Orders</a>
+    <a href="/consolidatedorders">Consolidated Orders</a>
 </div>

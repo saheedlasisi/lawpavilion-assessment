@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use DB;
 use App\OrderItems;
 use App\Orders;
+use App\ConsolidatedOrders;
 use Faker\Factory as Faker;
+use App\Exports\ConsolidatedOrdersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -78,6 +81,21 @@ class OrderController extends Controller
 
 
 
+    public function consolidatedorders()
+    {
+
+        $title = "Consolidated Orders";
+
+        $consolidatedorders = ConsolidatedOrders::orderBy('id', 'DESC')->paginate(10);
+
+        return view('pages.consolidatedorders')->with(['title' => $title, 'consolidatedorders' => $consolidatedorders]);
+    }
+
+
+    public function exportConsolidatedOrders()
+    {
+        return Excel::download(new ConsolidatedOrdersExport, 'consolidated_orders.xlsx');
+    }
 
 
 

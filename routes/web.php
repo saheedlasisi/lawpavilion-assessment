@@ -28,3 +28,7 @@ Route::get('/product/generate', 'ProductController@generate')->name('website.pro
 
 Route::get('/orders', 'OrderController@index')->name('website.orders');
 Route::get('/order/generate', 'OrderController@generate')->name('website.orders.generate');
+
+
+Route::get('/consolidatedorders', 'OrderController@consolidatedorders')->name('website.consolidatedorders');
+Route::get('/export-consolidated-orders', 'OrderController@exportConsolidatedOrders')->name('website.export-consolidated-orders');
